@@ -1,0 +1,350 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="bassfunk">
+    <meta name="description" content="We like sounds">
+    <meta name="keywords" content="neuro, electronic, moscow, bass, funk, bassfunk">
+    <meta property="og:title" content="bassfunk">
+    <meta property="og:type" content="band">
+    <meta property="og:url" content="http://bassfunk.moscow">
+    <meta property="og:image" content="http://bassfunk.moscow/img/cover.jpg">
+    <meta property="og:determiner" content="wobwobwob">
+    <meta property="og:see_also" content="https://vk.com/bassfunk2">
+    <meta property="fb:admins" content="905413279503908">
+    <meta property="og:site_name" content="bassfunk">
+    <meta property="og:description" content="We like sounds">
+    <meta itemprop="name" content="bassfunk">
+    <meta itemprop="description" content="We like sounds">
+    <meta itemprop="image" content="http://bassfunk.moscow/img/cover.jpg">
+    <link rel="image_src" href="http://bassfunk.moscow/img/cover.jpg" />
+    <meta name="author" content="fazda maay">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.embed.ly/jquery.embedly-3.1.1.min.js" type="text/javascript"></script>
+   <!--  <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/hover.css/2.1.1/css/hover-min.css">
+    <title>bassfunk</title>
+    <script src="/shit/p5.min.js"   language="javascript"          type="text/javascript"                ></script>
+    <script src="/shit/p5.sound.js" language="javascript"          type="text/javascript" charset="utf-8"></script>
+    <script src="/shit/sketch.js"   language="javascript"          type="text/javascript" charset="utf-8"></script>
+    
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-21353594-7', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+
+<body>
+</body>
+
+<template name="bassfunk">
+    {{>backgroundfuck}}
+    <div class="container-fluid wrapper" style="background: rgb(0, 0, 0);">
+        {{>header}}
+        <div class="row  all-element center-block text-center">
+            {{>all_items}}
+        </div>
+    </div>
+    <!-- footer -->
+    {{>footer}}
+    <!-- footer -->
+    <div id="wow"></div>
+</template>
+
+<template name="all_items">
+    <div class="center-block all col-md-12 widthfix">
+        {{#each all_item}}
+        <div class="item {{_id}}">
+            <div class="logo {{_id}} main__logo-wrapper">
+                {{#with FS.GetFile "Bandsample" sound}}
+                <script type="text/javascript">
+                Session.set("{{_id}}", "{{url}}");
+                </script>
+                {{/with}} {{#with FS.GetFile "Bandlogo" image}}
+
+                <img class="main__logo" onload="this.style=' cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png),  pointer;transition: .36s ease all; opacity:1;width:350px; transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);    -webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);will-change:transform, opacity;'" src="{{url}}" style="opacity: 0;width:350px; height:350px;transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);-webkit-transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);"> {{/with}}
+            </div>
+            <div class="links {{_id}}" style="display:none;">
+                {{#if soundcloud}}
+                <a target="_blank" href="{{soundcloud}}"><img src="/img/menu_items/soundcloud.png"></a> {{else}}
+                <img src="/img/menu_items/empty.png"> {{/if}} {{#if bandcamp}}
+                <a target="_blank" href="{{bandcamp}}"><img src="/img/menu_items/bandcamp.png"></a> {{else}}
+                <img src="/img/menu_items/empty.png"> {{/if}} {{#if facebook}}
+                <a target="_blank" href="{{facebook}}"><img src="/img/menu_items/facebook.png"></a> {{else}}
+                <img src="/img/menu_items/empty.png"> {{/if}} {{#if website}}
+                <a target="_blank" href="{{website}}"><img src="/img/menu_items/website.png"></a> {{else}}
+                <img src="/img/menu_items/empty.png"> {{/if}} {{#if vk}}
+                <a target="_blank" href="{{vk}}"><img src="/img/menu_items/vk.png"></a> {{else}}
+                <img src="/img/menu_items/empty.png"> {{/if}} {{#if email}}
+                <a href="mailto:{{email}}"><img src="/img/menu_items/email.png"></a> {{else}}
+                <img src="/img/menu_items/empty.png"> {{/if}} {{#if instagramm}}
+                <a target="_blank" href="{{instagramm}}"><img src="/img/menu_items/instagram.png"></a> {{else}}
+                <img src="/img/menu_items/empty.png"> {{/if}} {{#if twitter}}
+                <a target="_blank" href="{{twitter}}"><img src="/img/menu_items/twitter.png"></a> {{else}}
+                <img src="/img/menu_items/empty.png"> {{/if}} {{#if youtube}}
+                <a target="_blank" href="{{youtube}}"><img src="/img/menu_items/youtube.png"></a> {{else}}
+                <img src="/img/menu_items/empty.png"> {{/if}} {{#if currentUser}}
+                <a class="delete {{_id}}" href="#">DELETE</a><a class="sure {{_id}}" style="display:none;" href="#">SHURE?</a> {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</template>
+
+<template name="backgroundfuck">
+    {{#each bckd}} {{#with FS.GetFile "Backgroundlogo" image}}
+    <div class="dada" style="max-width: 1666px; display:none;position: fixed;top: 0;left: 0;bottom: 0;right: 0;mix-blend-mode: lighten;filter:contrast(1.06)"><video style="left:0;width:100%;height:100%;position:absolute"  autoplay="" muted="" loop="" name="media"><source src="/video/gundam.mp4" type="video/mp4"></video>
+        </div>
+    {{/with}}
+
+    {{/each}}
+</template>
+
+<template name="header">
+    <div class="row all-element center-block text-center header">
+        <div class="col-md-12 col-lg-12 header center-block text-center ">
+            <div class="bassimg" onclick="document.getElementById('clickOne').click()" style="position: relative; border: 9px solid white; width: 187px; height: 187px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: 35px;">
+                <a class="basslogo" id="clickOne" href="/stream" alt="bassfunk" style="font-family:arial;font-weight:900;color:white;font-size:1.97em; width: 128%;position:absolute;bottom:2.35em;left:-1.25em" >
+                    <span style="margin-left:10%">bass</span>
+                    <span style="margin-left:-5%;font-style:italic">funk</span>
+                </a>
+            </div>
+        </div>
+        <div class="sound">
+            <div class="soundon"><i class="fa facircle fa-circle-o" aria-hidden="true"></i></div>
+            <div class="soundoff"><i class="fa facircle fa-circle" aria-hidden="true"></i></div>
+        </div>
+        <div class="rand">
+            <div class="randon"><i class="fa facube fa-cubes" aria-hidden="true"></i></div>
+            <div class="randoff"><i class="fa facube fa-cube" aria-hidden="true"></i></div>
+        </div>
+    </div>
+</template>
+
+<template name="footer">
+    <!-- panel-footer testtest-->
+    <div class="footer  row text-center ">
+        <div class="col-md-12 col-lg-12 center-block text-center">
+            <a class="fbut" target="_blank" href="https://vk.com/bassfunk2"><img  src="/img/footer/bassfunk.png"></a>
+            <a class="fbut" href="mailto:mail@bassfunk.moscow"><img src="/img/footer/mail.png"></a>
+            <a class="fbut" target="_blank" href="https://bassfunk.bandcamp.com/"><img src="/img/footer/bandcamp.png"></a>
+        </div>
+    </div>
+</template>
+
+<template name="login">{{> loginButtons}}</template>
+
+<template name="chatfuck">
+    <div class="container-fluid">
+        {{>backgroundfuck}}
+        <div class="row all-element center-block text-center header">
+            <div class="col-md-12 col-lg-12 header center-block text-center ">
+                <div class="bassimg" onclick="document.getElementById('clickTwo').click()" style="position: relative; border: 9px solid white; width: 187px; height: 187px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: 35px;">
+                    <a class="basslogo" id="clickTwo" href="/past" alt="bassfunk" style="font-family:arial;font-weight:900;color:white;font-size:1.97em; width: 128%;position:absolute;bottom:2.35em;left:-1.25em">
+                        <span style="margin-left:10%">bass</span>
+                        <span style="margin-left:-5%;font-style:italic">funk</span>
+                    </a>
+                </div>
+                <div class="chrand">
+                    <div class="chrandon"><i class="fa facube fa-cubes" aria-hidden="true"></i></div>
+                    <div class="chrandoff"><i class="fa facube fa-cube" aria-hidden="true"></i></div>
+                </div>
+                <div class="blogin">
+                    <div class="blogin"><a href="/all" ><i class="fa fa-btc" aria-hidden="true"></i></a></div>
+                </div>
+            </div>
+        </div>
+        <div id="chat" class="container row center-block text-center">
+            {{#if currentUser}} {{>form_block}} {{/if}} {{>messages_block}}
+        </div>
+    </div>
+    <div id="wow"></div>
+</template>
+
+<template name="blog">
+    <script>
+        (function(b,i,t,C,O,I,N) {
+            I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+            I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+            setTimeout(function(){
+                $('.btcwdgt-chart').append("<div id='robot'><div id='robot-wrapper'><img id='robot-img-top' src='http://i.imgur.com/Iz9UTZp.jpg'><img id='robot-img-bottom' src='http://i.imgur.com/IUQsZNW.jpg' ></div></div>");
+                $('.btcwdgt-header').attr('style','z-index:301!important');
+            }, 2000);
+        })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
+
+            // Variables for current position
+            var mX, mY;
+
+            function handleMouse(e) {
+              // Verify that x and y already have some value
+              if (mX && mY) {
+                // Scroll window by difference between current and previous positions
+                window.scrollBy(e.clientX - mX, e.clientY - mY);
+              }
+
+              // Store current position
+              mX = e.clientX;
+              mY = e.clientY;
+            }
+
+            // Assign handleMouse to mouse movement events
+            document.onmousemove = handleMouse;
+        
+
+        
+
+    </script>
+    <div class="container-fluid">
+        {{>backgroundfuck}}
+        
+        <div class="btcwdgt-chart" style="min-height:975px!important;width: 99.1vw!important;height:60vw!important;overflow:hidden!important;max-width: none !important;position: absolute!important;top:0px!important;left:0!important;right:0!important;margin: auto!important;filter: grayscale(0.5) contrast(1.3)!important;z-index: 70!important;">
+        </div>
+        <style>.dada{display:none!important;}</style>
+
+
+        <div class="bassimg" onclick="document.getElementById('clickThree').click()" style="position: relative; border: 9px solid white; width: 187px; height: 187px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: 35px;">
+            <a class="basslogo" id="clickThree" href="/past" alt="bassfunk" style="font-family:arial;font-weight:900;color:white;font-size:1.97em; width: 103%;position:absolute;bottom:2.35em;">
+                <span style="margin-left:10%">bass</span>
+                <span style="margin-left:-5.5%;font-style:italic">funk</span>
+            </a>
+        </div>
+
+        <div class="chrand">
+            <div class="chrandon"><i class="fa facube fa-cubes" aria-hidden="true"></i></div>
+            <div class="chrandoff"><i class="fa facube fa-cube" aria-hidden="true"></i></div>
+        </div>
+
+        <div class="blogin">
+            <div class="blogin"><a href="/stream"><i class="fa fa-hand-lizard-o" aria-hidden="true"></i></a></div>
+        </div>
+        <!-- <div class="heighthack"></div> -->
+        <!-- <div id="chat" class="container row center-block text-center ">
+            {{#if currentUser}} {{>blog_form_block}} {{/if}} {{>blog_messages_block}}
+        </div> -->
+    </div>
+    <!-- <div id="wow"></div> -->
+</template>
+
+<template name="form_block">
+    <form class="new_message">
+        <input type="text" name="text" placeholder="Can't Touch This" />
+    </form>
+</template>
+
+<template name="messages_block">
+    <div id="messages" class="center-block text-center">
+        {{#each message}}
+        <div id="{{_id}}" class="message" >
+            {{#if currentUser}}
+
+            <a class="delete {{_id}}" href="#">&#2676;</a><a class="sure {{_id}}" style="display:none;" href="#">&#9822;?</a> {{/if}}
+            <!--
+             _ _  _   _ __  _  _ 
+            / / //_'_\_\/_|/_//_'
+                           _/                                           
+            -->
+            {{{text}}}
+            <!--
+             _ _  _   _ __  _  _ 
+            / / //_'_\_\/_|/_//_'
+                           _/                                                            
+            -->
+            
+        </div>
+        <br> {{/each}}
+    </div>
+    {{#if moreResults}}
+    <!-- <div class="loading__wrapper">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-1a"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div> testtest-->
+    <div id="showMoreResults" style="margin-left: 25px;font-size:35px;font-weight: 900;font-family: roboto">
+        <span class="loading">待ち構える</span>
+    </div>
+    {{/if}}
+</template>
+
+<template name="blog_form_block">
+    <form class="new_message">
+        <input type="text" name="text" placeholder="For all the unentended shit" />
+    </form>
+</template>
+
+<template name="blog_messages_block">
+    <div id="messages" class="center-block text-center">
+        {{#each blog_message}}
+        <div id="{{_id}}" class="message">
+            {{#if currentUser}}
+            <a class="delete {{_id}}" href="#">&#2676;</a><a class="sure {{_id}}" style="display:none;" href="#">&#9822;?</a> {{/if}} {{{text}}}
+        </div>
+        <br> {{/each}}
+    </div>
+    {{#if moreResults}}
+    <div id="showMoreBlogRepsults" style="margin-left: 25px;">
+        <span class="loading">WAIT NAHUY</span>
+    </div>
+    {{/if}}
+</template>
+
+<template name="plums">
+    {{>backgroundfuck}}
+    <div class="container-fluid wrapper" >
+        <div class="row all-element center-block text-center header" >
+            <div class="col-md-12 col-lg-12 header center-block text-center ">
+                <div class="bassimg" onclick="document.getElementById('clickFour').click()" style="position: relative; border: 9px solid white; width: 187px; height: 187px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: 35px;">
+                    <a class="basslogo" id="clickFour" href="http://bassfunk.moscow" alt="bassfunk" style="font-family:arial;font-weight:900;color:white;font-size:1.97em; width: 128%;position:absolute;bottom:2.35em;left:-1.25em">
+                        <span style="margin-left:10%">bass</span>
+                        <span style="margin-left:-5%;font-style:italic">funk</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-12 row content center-block text-center releases__container">
+            {{#each release_item}}
+            <a target="_blank" href="{{link}}">
+                    {{#with FS.GetFile "Releaselogo" image}}
+
+                    <img class="hvr-hang releases__img" onload="this.style=' cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png),  pointer;border-radius:50%;transition: .5s ease all; opacity:1;width:243px; height:243px; margin:10px; margin-top: 13px;transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);    box-shadow: 0px 0px 132px rgba(0,0,0,0.9);-webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);will-change:transform, opacity;';document.getElementById('defaultCanvas0').style='display:none'" src="{{url}}" style="opacity: 0;width:243px; height:243px;margin:10px; margin-top: 13px;transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);border-radius:50%;-webkit-transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);" >
+                    {{/with}}
+                </a> {{/each}}
+        </div>
+    </div>
+    <!-- <script type="text/javascript">
+    (function(w, doc) {
+        if (!w.__utlWdgt) {
+            w.__utlWdgt = true;
+            var d = doc,
+                s = d.createElement('script'),
+                g = 'getElementsByTagName';
+            s.type = 'text/javascript';
+            s.charset = 'UTF-8';
+            s.async = true;
+            s.src = ('https:' == w.location.protocol ? 'https' : 'http') + '://w.uptolike.com/widgets/v1/uptolike.js';
+            var h = d[g]('body')[0];
+            h.appendChild(s);
+        }
+    })(window, document);
+    
+    </script> -->
+    <!-- <div data-share-size="40" data-follow-button-text="JOIN MADNESS" data-like-text-enable="false" data-additional-network-text="also here" data-background-alpha="0.0" data-pid="1332997" data-mode="share" data-background-color="#ffffff" data-hover-effect="scale" data-share-shape="round" data-share-counter-size="17" data-icon-color="#ffffff" data-text-color="#000000" data-buttons-color="#ffffff" data-counter-background-color="#000000" data-share-counter-type="disable" data-follow-text="SOO STRANGE AND WHAT THE FUCK ON  %network%" data-orientation="horizontal" data-following-enable="true" data-sn-ids="fb.vk.tw.gp.tb.ps.su.ms.bl.dg.sb.rb.ip.ev.em.dl.pn.ya." data-selection-enable="true" data-follow-title="MADNESS ALL DAY LONG" data-exclude-show-more="false" data-share-style="7" data-follow-vk="bassfunk" data-counter-background-alpha="1.0" data-top-button="true" data-follow-fb="BassfunkRecordings" class="uptolike-buttons center-block text-center"></div> -->
+</template>

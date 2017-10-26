@@ -1,0 +1,3 @@
+User-agent: *
+Host: bassfunk.moscow
+Host: www.bassfunk.moscow
