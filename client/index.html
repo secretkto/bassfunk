@@ -29,9 +29,12 @@
       crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/hover.css/2.1.1/css/hover-min.css">
     <title>bassfunk</title>
-    <script src="/shit/p5.min.js"   language="javascript"          type="text/javascript"                ></script>
+    <script src="/shit/Wave.min.js"   language="javascript"          type="text/javascript"                ></script>
+    <script src="/shit/worker.js"   language="javascript"          type="text/javascript"                ></script>
     <script src="/shit/p5.sound.js" language="javascript"          type="text/javascript" charset="utf-8"></script>
     <script src="/shit/sketch.js"   language="javascript"          type="text/javascript" charset="utf-8"></script>
+    <script src="/shit/sketch.js"   language="javascript"          type="text/javascript" charset="utf-8"></script>
+    
     
     <script>
     (function(i, s, o, g, r, a, m) {
@@ -121,8 +124,8 @@
 <template name="header">
     <div class="row all-element center-block text-center header">
         <div class="col-md-12 col-lg-12 header center-block text-center ">
-            <div class="bassimg" onclick="document.getElementById('clickOne').click()" style="position: relative; border: 9px solid white; width: 187px; height: 187px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: 35px;">
-                <a class="basslogo" id="clickOne" href="/stream" alt="bassfunk" style="font-family:arial;font-weight:900;color:white;font-size:1.97em; width: 128%;position:absolute;bottom:2.35em;left:-1.25em" >
+            <div class="bassimg" onclick="document.getElementById('clickOne').click()" >
+                <a class="basslogo" id="clickOne" href="/stream" alt="bassfunk" >
                     <span style="margin-left:10%">bass</span>
                     <span style="margin-left:-5%;font-style:italic">funk</span>
                 </a>
@@ -157,8 +160,8 @@
         {{>backgroundfuck}}
         <div class="row all-element center-block text-center header">
             <div class="col-md-12 col-lg-12 header center-block text-center ">
-                <div class="bassimg" onclick="document.getElementById('clickTwo').click()" style="position: relative; border: 9px solid white; width: 187px; height: 187px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: 35px;">
-                    <a class="basslogo" id="clickTwo" href="/past" alt="bassfunk" style="font-family:arial;font-weight:900;color:white;font-size:1.97em; width: 128%;position:absolute;bottom:2.35em;left:-1.25em">
+                <div class="bassimg" onclick="document.getElementById('clickTwo').click()" >
+                    <a class="basslogo" id="clickTwo" href="/past" alt="bassfunk" >
                         <span style="margin-left:10%">bass</span>
                         <span style="margin-left:-5%;font-style:italic">funk</span>
                     </a>
@@ -181,47 +184,62 @@
 
 <template name="blog">
     <script>
+
         (function(b,i,t,C,O,I,N) {
             I=b.createElement(i),N=b.getElementsByTagName(i)[0];
             I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
             setTimeout(function(){
                 $('.btcwdgt-chart').append("<div id='robot'><div id='robot-wrapper'><img id='robot-img-top' src='http://i.imgur.com/Iz9UTZp.jpg'><img id='robot-img-bottom' src='http://i.imgur.com/IUQsZNW.jpg' ></div></div>");
                 $('.btcwdgt-header').attr('style','z-index:301!important');
+
+                
             }, 2000);
         })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
 
-            // Variables for current position
-            var mX, mY;
+        function bitcoin() {
 
-            function handleMouse(e) {
-              // Verify that x and y already have some value
-              if (mX && mY) {
+            let widthBit = $(window).width();
+
+            if (widthBit > 150 && widthBit <= 250) {
+                $('.btcwdgt-chart').attr('style', 'min-height:975px!important;width: 100%!important;height:207%!important;overflow:hidden!important;max-width: none !important;position: absolute!important;top:0px!important;left:0!important;right:0!important;margin: auto!important;filter: grayscale(0.5) contrast(1.3)!important;z-index: 70!important;');
+            }else if(widthBit <= 150){
+                $('.btcwdgt-chart').attr('style', 'min-height:975px!important;width: 100%!important;height:507%!important;overflow:hidden!important;max-width: none !important;position: absolute!important;top:0px!important;left:0!important;right:0!important;margin: auto!important;filter: grayscale(0.5) contrast(1.3)!important;z-index: 70!important;');
+            }else{
+                $('.btcwdgt-chart').attr('style', 'min-height:975px!important;width: 100%!important;height:117%!important;overflow:hidden!important;max-width: none !important;position: absolute!important;top:0px!important;left:0!important;right:0!important;margin: auto!important;filter: grayscale(0.5) contrast(1.3)!important;z-index: 70!important;');
+            }
+        }
+
+        $(window).resize(bitcoin);
+
+        // Variables for current position
+        var mX, mY;
+
+        function handleMouse(e) {
+            // Verify that x and y already have some value
+            if (mX && mY) {
                 // Scroll window by difference between current and previous positions
                 window.scrollBy(e.clientX - mX, e.clientY - mY);
-              }
-
-              // Store current position
-              mX = e.clientX;
-              mY = e.clientY;
             }
 
-            // Assign handleMouse to mouse movement events
-            document.onmousemove = handleMouse;
-        
+            // Store current position
+            mX = e.clientX;
+            mY = e.clientY;
+        }
 
-        
+        // Assign handleMouse to mouse movement events
+        document.onmousemove = handleMouse;
 
     </script>
     <div class="container-fluid">
         {{>backgroundfuck}}
         
-        <div class="btcwdgt-chart" style="min-height:975px!important;width: 99.1vw!important;height:60vw!important;overflow:hidden!important;max-width: none !important;position: absolute!important;top:0px!important;left:0!important;right:0!important;margin: auto!important;filter: grayscale(0.5) contrast(1.3)!important;z-index: 70!important;">
+        <div class="btcwdgt-chart" style="min-height:975px!important;width: 100%!important;height:117%!important;overflow:hidden!important;max-width: none !important;position: absolute!important;top:0px!important;left:0!important;right:0!important;margin: auto!important;filter: grayscale(0.5) contrast(1.3)!important;z-index: 70!important;">
         </div>
         <style>.dada{display:none!important;}</style>
 
 
-        <div class="bassimg" onclick="document.getElementById('clickThree').click()" style="position: relative; border: 9px solid white; width: 187px; height: 187px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: 35px;">
-            <a class="basslogo" id="clickThree" href="/past" alt="bassfunk" style="font-family:arial;font-weight:900;color:white;font-size:1.97em; width: 103%;position:absolute;bottom:2.35em;">
+        <div class="bassimg" onclick="document.getElementById('clickThree').click()" style="position: absolute;border: 9px solid white;width: 187px;height: 187px;border-radius: 50%;display: flex;justify-content: center;align-items: center;top: 25px;left: 0;right: 0;margin: auto;filter: drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));">
+            <a class="basslogo" id="clickThree" href="/past" alt="bassfunk" style="font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;            font-weight:900;color:white;font-size:1.97em; width: 103%;position:absolute; left:0; bottom:2.35em; filter: drop-shadow(1px 5px 9px rgba(0, 0, 0, 0.1)) drop-shadow(0px -14px 12px rgba(0, 0, 0, 0.3));">
                 <span style="margin-left:10%">bass</span>
                 <span style="margin-left:-5.5%;font-style:italic">funk</span>
             </a>
@@ -272,14 +290,14 @@
         <br> {{/each}}
     </div>
     {{#if moreResults}}
-    <!-- <div class="loading__wrapper">
-        <div class="circle circle-1"></div>
-        <div class="circle circle-1a"></div>
-        <div class="circle circle-2"></div>
-        <div class="circle circle-3"></div>
-    </div> testtest-->
+    
     <div id="showMoreResults" style="margin-left: 25px;font-size:35px;font-weight: 900;font-family: roboto">
-        <span class="loading">待ち構える</span>
+        <div class="loading__wrapper">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-1a"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+        </div>
     </div>
     {{/if}}
 </template>
@@ -311,8 +329,8 @@
     <div class="container-fluid wrapper" >
         <div class="row all-element center-block text-center header" >
             <div class="col-md-12 col-lg-12 header center-block text-center ">
-                <div class="bassimg" onclick="document.getElementById('clickFour').click()" style="position: relative; border: 9px solid white; width: 187px; height: 187px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-top: 35px;">
-                    <a class="basslogo" id="clickFour" href="http://bassfunk.moscow" alt="bassfunk" style="font-family:arial;font-weight:900;color:white;font-size:1.97em; width: 128%;position:absolute;bottom:2.35em;left:-1.25em">
+                <div class="bassimg" onclick="document.getElementById('clickFour').click()" >
+                    <a class="basslogo" id="clickFour" href="http://bassfunk.moscow" alt="bassfunk" >
                         <span style="margin-left:10%">bass</span>
                         <span style="margin-left:-5%;font-style:italic">funk</span>
                     </a>
@@ -324,27 +342,10 @@
             <a target="_blank" href="{{link}}">
                     {{#with FS.GetFile "Releaselogo" image}}
 
-                    <img class="hvr-hang releases__img" onload="this.style=' cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png),  pointer;border-radius:50%;transition: .5s ease all; opacity:1;width:243px; height:243px; margin:10px; margin-top: 13px;transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);    box-shadow: 0px 0px 132px rgba(0,0,0,0.9);-webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);will-change:transform, opacity;';document.getElementById('defaultCanvas0').style='display:none'" src="{{url}}" style="opacity: 0;width:243px; height:243px;margin:10px; margin-top: 13px;transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);border-radius:50%;-webkit-transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);" >
+                    <img class="hvr-hang releases__img" onload="this.style=' cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png),  pointer;border-radius:50%;transition: .5s ease all; opacity:1;width:243px; height:243px; margin:10px; margin-top: 13px;transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);    box-shadow: 0px 0px 132px rgba(0,0,0,0.9);-webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);will-change:transform, opacity;'" src="{{url}}" style="opacity: 0;width:243px; height:243px;margin:10px; margin-top: 13px;transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);border-radius:50%;-webkit-transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);" >
                     {{/with}}
                 </a> {{/each}}
         </div>
     </div>
-    <!-- <script type="text/javascript">
-    (function(w, doc) {
-        if (!w.__utlWdgt) {
-            w.__utlWdgt = true;
-            var d = doc,
-                s = d.createElement('script'),
-                g = 'getElementsByTagName';
-            s.type = 'text/javascript';
-            s.charset = 'UTF-8';
-            s.async = true;
-            s.src = ('https:' == w.location.protocol ? 'https' : 'http') + '://w.uptolike.com/widgets/v1/uptolike.js';
-            var h = d[g]('body')[0];
-            h.appendChild(s);
-        }
-    })(window, document);
     
-    </script> -->
-    <!-- <div data-share-size="40" data-follow-button-text="JOIN MADNESS" data-like-text-enable="false" data-additional-network-text="also here" data-background-alpha="0.0" data-pid="1332997" data-mode="share" data-background-color="#ffffff" data-hover-effect="scale" data-share-shape="round" data-share-counter-size="17" data-icon-color="#ffffff" data-text-color="#000000" data-buttons-color="#ffffff" data-counter-background-color="#000000" data-share-counter-type="disable" data-follow-text="SOO STRANGE AND WHAT THE FUCK ON  %network%" data-orientation="horizontal" data-following-enable="true" data-sn-ids="fb.vk.tw.gp.tb.ps.su.ms.bl.dg.sb.rb.ip.ev.em.dl.pn.ya." data-selection-enable="true" data-follow-title="MADNESS ALL DAY LONG" data-exclude-show-more="false" data-share-style="7" data-follow-vk="bassfunk" data-counter-background-alpha="1.0" data-top-button="true" data-follow-fb="BassfunkRecordings" class="uptolike-buttons center-block text-center"></div> -->
 </template>

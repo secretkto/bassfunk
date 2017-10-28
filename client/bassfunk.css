@@ -186,15 +186,28 @@ canvas {
 }
 
 .bassimg {
-    max-height: 250px;
     margin: 0 auto;
     margin-bottom: 45px;
     cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), auto;
     z-index: 9999999999!important;
     position: relative;
+    border: 9px solid white; 
+    width: 187px; 
+    height: 187px; 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 35px;
 }
 
 @media(max-width: 1600px){
+    .btcwdgt-body{
+        mix-blend-mode: lighten!important;
+    }
+    
+}
+@media(min-height: 1100px){
     .btcwdgt-body{
         mix-blend-mode: lighten!important;
     }
@@ -204,6 +217,13 @@ canvas {
 @media(min-width: 2100px){
     .btcwdgt-body{
         mix-blend-mode: lighten!important;
+    }
+    
+}
+
+@media(max-width: 250px){
+    .btcwdgt-chart{
+        height: 196%!important;
     }
     
 }
@@ -242,7 +262,7 @@ canvas {
     vertical-align:bottom!important;
 }
 
-@media (max-width:1300px) {
+@media (max-width:1350px) {
     #robot {
         transform: rotate(90deg)!important;
         width: 205%!important;
@@ -343,7 +363,7 @@ canvas {
 
 .loading__wrapper {
     height: 50px;
-    position: fixed;
+    position: relative;
     width: 183px;
     bottom: 35px;left:0;right:0;
     margin: auto;
@@ -425,6 +445,13 @@ h1 {
     z-index: 1001;
     position: relative;
     filter: drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.2));
+    font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+    font-weight:900;
+    color:white;
+    font-size:1.97em; 
+    width: 128%;
+    position:absolute;bottom:2.35em;
+    left:-1.25em;
 }
 
 
@@ -432,6 +459,7 @@ a:active,
 a:focus,
 a:hover {
     text-decoration: none;
+    color: white!important;
 }
 
 
@@ -452,6 +480,10 @@ a {
 .all-elements {
     width: 95%;
     margin: 0 auto;
+}
+
+#defaultCanvas0{
+    position: fixed;
 }
 
 .all-element {
@@ -652,7 +684,6 @@ input[type=number] {
         width: 100%!important;
         height: 100%!important;
     }
-    .main__logo-wrapper {}
 }
 
 .widthfix {

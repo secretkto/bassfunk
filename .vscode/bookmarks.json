@@ -1,0 +1,30 @@
+{
+	"onDidClearBookmarkEmitter": {},
+	"onDidClearAllBookmarksEmitter": {},
+	"onDidAddBookmarkEmitter": {},
+	"onDidRemoveBookmarkEmitter": {},
+	"onDidUpdateBookmarkEmitter": {},
+	"bookmarks": [
+		{
+			"fsPath": "$ROOTPATH$\\client\\bassfunk.css",
+			"bookmarks": [
+				187,
+				224,
+				357
+			]
+		},
+		{
+			"fsPath": "$ROOTPATH$\\client\\index.html",
+			"bookmarks": [
+				182
+			]
+		},
+		{
+			"fsPath": "$ROOTPATH$\\client\\main.js",
+			"bookmarks": [
+				376,
+				434
+			]
+		}
+	]
+}

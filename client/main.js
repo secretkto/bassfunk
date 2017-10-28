@@ -1,100 +1,90 @@
 Session.set("rando", false);
 Session.set("chrando", false);
 Session.set("prando", false);
-Session.set('itemsLimit', 20);
+Session.set('itemsLimit', 8);
 Session.set('itemsLimitOld', 8)
 Session.set('itemsPostLimit', 8);
 Session.set('itemsPostLimitOld', 8)
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe("our", {
-        onReady: function() {
+        onReady: function () {
             Session.set("active", true);
         }
     });
 });
 
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe("all", {
-        onReady: function() {
+        onReady: function () {
             Session.set("active", true);
         }
     });
 });
 
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe("scene", {
-        onReady: function() {
+        onReady: function () {
             Session.set("active", true);
         }
     });
 });
 
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe("bandsample", {
-        onReady: function() {
+        onReady: function () {
             Session.set("active", true);
         }
     });
 });
 
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe("bandlogo", {
-        onReady: function() {
+        onReady: function () {
             Session.set("active", true);
         }
     });
 });
 
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe("backgroundfuck", {
-        onReady: function() {
+        onReady: function () {
             Session.set("active", true);
         }
     });
 });
 
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe("backgroundlogo", {
-        onReady: function() {
+        onReady: function () {
             Session.set("active", true);
         }
     });
 });
 
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe("release", {
-        onReady: function() {
+        onReady: function () {
             Session.set("active", true);
         }
     });
 });
 
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe("releaselogo", {
-        onReady: function() {
+        onReady: function () {
             Session.set("active", true);
         }
     });
 });
-
-// Meteor.subscribe('scene');
-// Meteor.subscribe('our');
-// Meteor.subscribe('bandsample');
-// Meteor.subscribe('bandlogo');
-// Meteor.subscribe('backgroundlogo');
-// Meteor.subscribe('release');
-// Meteor.subscribe('releaselogo');
-// Meteor.subscribe('messages', 5);
-
 
 // главная страница
-Router.route('/', function() {
+Router.route('/', function () {
     this.render('bassfunk');
 });
 
 
 Template.all_items.helpers({
-    all_item: function() {
+    all_item: function () {
         if (Session.get("active") && Session.get("rando") == false) {
             return All.find({}, { sort: { sort: 1 } });
         } else if (Session.get("active") && Session.get("rando") == true) {
@@ -106,7 +96,7 @@ Template.all_items.helpers({
 });
 
 Template.backgroundfuck.helpers({
-    bckd: function() {
+    bckd: function () {
         if (Session.get("active")) {
             return Backgroundfuck.find({}, { limit: 1, sort: { uploadedAt: -1 } });
         } else {
@@ -124,7 +114,7 @@ var bh = $('body').height();
 var bw = $('body').width();
 
 Template.bassfunk.events({
-    "click .logo": function() {
+    "click .logo": function () {
         bh = $('body').height();
         bw = $('body').width();
         $("#wow").height(bh);
@@ -137,13 +127,13 @@ Template.bassfunk.events({
         need = Session.get(this.sound);
         console.log(artname);
         if (mySound == null) {
-            mySound = loadSound(need, function() {
+            mySound = loadSound(need, function () {
                 mySound.play(),
                     analyzer.setInput(mySound)
             })
         } else {
             mySound.stop();
-            mySound = loadSound(need, function() {
+            mySound = loadSound(need, function () {
                 mySound.play(),
                     analyzer.setInput(mySound)
             });
@@ -154,13 +144,13 @@ Template.bassfunk.events({
         $(".logo" + "." + menu_artist).hide();
         $(".links" + "." + menu_artist).show();
     },
-    "click .bassimg": function() {
+    "click .bassimg": function () {
         $("body").css("-webkit-filter", "invert(0%)");
         $("body").css("filter", "invert(0%)");
         $(".fbut").css("-webkit-filter", "invert(0%)");
         $(".fbut").css("filter", "invert(0%)");
     },
-    "click .soundoff": function() {
+    "click .soundoff": function () {
         masterVolume(0);
         sound = 0;
         if (mySound != null) {
@@ -174,7 +164,7 @@ Template.bassfunk.events({
         $(".fbut").css("-webkit-filter", "invert(0%)");
         $(".fbut").css("filter", "invert(0%)");
     },
-    "click .soundon": function() {
+    "click .soundon": function () {
         if (mySound != null) {
             mySound.stop();
         }
@@ -188,25 +178,25 @@ Template.bassfunk.events({
         $(".fbut").css("-webkit-filter", "invert(0%)");
         $(".fbut").css("filter", "invert(0%)");
     },
-    "click .randoff": function() {
-        $(".all").fadeOut(100, function() { Session.set("rando", false); });
+    "click .randoff": function () {
+        $(".all").fadeOut(100, function () { Session.set("rando", false); });
         $(".randoff").hide();
         $(".randon").show();
         $(".all").fadeIn();
     },
-    "click .randon": function() {
-        $(".all").fadeOut(100, function() { Session.set("rando", true); });
+    "click .randon": function () {
+        $(".all").fadeOut(100, function () { Session.set("rando", true); });
         $(".randon").hide();
         $(".randoff").show();
         $(".all").fadeIn();
     },
-    "mouseenter .bassimg": function() {
+    "mouseenter .bassimg": function () {
         $(".dada").css("display", "block");
         $(".dada").removeClass("dadaBack");
         $(".dada").addClass("dadaFront");
         $("#wow").hide();
     },
-    "mouseleave .bassimg": function() {
+    "mouseleave .bassimg": function () {
         $(".dada").css("display", "none");
         if (sound == 1) {
             $("#wow").show();
@@ -216,43 +206,42 @@ Template.bassfunk.events({
         $(".dada").addClass("dadaBack");
 
     },
-    "click .delete": function() {
+    "click .delete": function () {
         $(".delete" + "." + this._id).hide();
         $(".sure" + "." + this._id).show();
     },
-    "click .sure": function() {
+    "click .sure": function () {
         All.remove(this._id);
     }
 });
 Template.chatfuck.events({
-    "mouseenter .bassimg": function() {
+    "mouseenter .bassimg": function () {
         $(".dada").css("display", "block");
         $("#wow").hide();
-        // $('.wrapper').css('background', 'url("'+background_item+'")');
         $('.container-fluid').css('background-size', '4px 4px');
         $(".dada").removeClass("dadaBack");
         $(".dada").addClass("dadaFront");
     },
-    "mouseleave .bassimg": function() {
+    "mouseleave .bassimg": function () {
         $(".dada").css("display", "none");
         $('.container-fluid').css('background', '#000');
         $(".dada").removeClass("dadaFront");
         $(".dada").addClass("dadaBack");
     },
-    "click .delete": function() {
+    "click .delete": function () {
         $(".delete" + "." + this._id).hide();
         $(".sure" + "." + this._id).show();
     },
-    "click .sure": function() {
+    "click .sure": function () {
         Messages.remove(this._id);
     },
-    "click .chrandoff": function() {
+    "click .chrandoff": function () {
         Session.set("chrando", false);
         $(".chrandoff").hide();
         $(".chrandon").show();
 
     },
-    "click .chrandon": function() {
+    "click .chrandon": function () {
         Session.set("chrando", true);
         $(".chrandon").hide();
         $(".chrandoff").show();
@@ -260,34 +249,33 @@ Template.chatfuck.events({
     }
 });
 Template.blog.events({
-    "mouseenter .bassimg": function() {
+    "mouseenter .bassimg": function () {
         $(".dada").css("display", "block");
         $("#wow").hide();
-        // $('.wrapper').css('background', 'url("'+background_item+'")');
         $('.container-fluid').css('background-size', '4px 4px');
         $(".dada").removeClass("dadaBack");
         $(".dada").addClass("dadaFront");
     },
-    "mouseleave .bassimg": function() {
+    "mouseleave .bassimg": function () {
         $(".dada").css("display", "none");
         $('.container-fluid').css('background', '#000');
         $(".dada").removeClass("dadaFront");
         $(".dada").addClass("dadaBack");
     },
-    "click .delete": function() {
+    "click .delete": function () {
         $(".delete" + "." + this._id).hide();
         $(".sure" + "." + this._id).show();
     },
-    "click .sure": function() {
+    "click .sure": function () {
         Posts.remove(this._id);
     },
-    "click .chrandoff": function() {
+    "click .chrandoff": function () {
         Session.set("prando", false);
         $(".chrandoff").hide();
         $(".chrandon").show();
 
     },
-    "click .chrandon": function() {
+    "click .chrandon": function () {
         Session.set("prando", true);
         $(".chrandon").hide();
         $(".chrandoff").show();
@@ -296,15 +284,14 @@ Template.blog.events({
 });
 
 Template.plums.events({
-    "mouseenter .bassimg": function() {
+    "mouseenter .bassimg": function () {
         $("#wow").hide();
         $(".dada").css("display", "block");
-        // $('.wrapper').css('background', 'url("'+background_item+'")');
         $('.wrapper').css('background-size', '4px 4px');
         $(".dada").removeClass("dadaBack");
         $(".dada").addClass("dadaFront");
     },
-    "mouseleave .bassimg": function() {
+    "mouseleave .bassimg": function () {
         $(".dada").css("display", "none");
         $('.wrapper').css('background', '#000');
         $(".dada").removeClass("dadaFront");
@@ -313,12 +300,12 @@ Template.plums.events({
 })
 
 // Релизы
-Router.route('/past', function() {
+Router.route('/past', function () {
     this.render('plums');
 });
 
 Template.plums.helpers({
-    release_item: function() {
+    release_item: function () {
         if (Session.get("active")) {
             return Release.find({}, { sort: { sort: 1 } });
         } else {
@@ -329,28 +316,16 @@ Template.plums.helpers({
 
 
 // admin
-Router.route('/login', function() {
+Router.route('/login', function () {
     this.render('login');
 });
 
-
-// chat
-
-// Meteor.subscribe('messages');
-
-Router.route('/stream', function() {
+Router.route('/stream', function () {
     this.render('chatfuck');
 });
 
-// Template.form_block.helpers({
-//   chatname: function () {
-//     return Session.get("chatusername")
-//   }
-// });
-
-// 
 Template.messages_block.helpers({
-    message: function() {
+    message: function () {
         if (Session.get("chrando") == false) {
             return Messages.find({}, { sort: { sort: -1 } });
         } else if (Session.get("chrando") == true) {
@@ -358,7 +333,7 @@ Template.messages_block.helpers({
             return _.first(_.shuffle(Rand.find().fetch()), Session.get('itemsLimit'));
         }
     },
-    moreResults: function() {
+    moreResults: function () {
         // If, once the subscription is ready, we have less rows than we
         // asked for, we've got all the rows in the collection.
         if (Session.get("chrando") == false) {
@@ -373,13 +348,13 @@ Template.messages_block.helpers({
 
 var ITEMS_INCREMENT = 8;
 Session.setDefault('itemsLimit', ITEMS_INCREMENT);
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe('messages', Session.get('itemsLimit'));
 });
 
 function showMoreVisible() {
     var threshold, target = $("#showMoreResults");
-    // if (!target.length) return;
+    if (!target.length) return;
     threshold = $(window).scrollTop() + $(window).height() - target.height();
     if (target.offset().top <= threshold) {
 
@@ -403,12 +378,12 @@ $(window).scroll(showMoreVisible);
 
 //blog
 
-Router.route('/all', function() {
+Router.route('/all', function () {
     this.render('blog');
 });
 
 Template.blog_messages_block.helpers({
-    blog_message: function() {
+    blog_message: function () {
         if (Session.get("prando") == false) {
             return Posts.find({}, { sort: { sort: -1 } }).fetch();
             console.log("NOW WE NEED POSTS")
@@ -417,7 +392,7 @@ Template.blog_messages_block.helpers({
             return _.first(_.shuffle(Randpo.find().fetch()), Session.get('itemsPostLimit'));
         }
     },
-    moreResults: function() {
+    moreResults: function () {
         // If, once the subscription is ready, we have less rows than we
         // asked for, we've got all the rows in the collection.
         if (Session.get("prando") == false) {
@@ -432,7 +407,7 @@ Template.blog_messages_block.helpers({
 
 var ITEMS_INCREMENT = 8;
 Session.setDefault('itemsPostLimit', ITEMS_INCREMENT);
-Deps.autorun(function() {
+Deps.autorun(function () {
     Meteor.subscribe('posts', Session.get('itemsPostLimit'));
 });
 
@@ -460,12 +435,12 @@ function showMoreBlogVisible() {
 $(window).scroll(showMoreBlogVisible);
 
 
-Template.chatfuck.rendered = function() {
+Template.chatfuck.rendered = function () {
     $("#wow").hide();
     $('canvas').hide();
 }
 
-Template.blog.rendered = function() {
+Template.blog.rendered = function () {
     $("#wow").hide();
     $('canvas').hide();
 }
@@ -474,7 +449,7 @@ Template.blog.rendered = function() {
 
 Template.form_block.events({
 
-    "submit .new_message": function(event) {
+    "submit .new_message": function (event) {
         var text = event.target.text.value;
         var new_mes = Messages.insert({
             text: text,
@@ -488,7 +463,7 @@ Template.form_block.events({
 });
 
 Template.blog_form_block.events({
-    "submit .new_message": function(event) {
+    "submit .new_message": function (event) {
         console.log("DEATH WILL FOLLOW YOU")
         var text = event.target.text.value;
         var new_mes = Posts.insert({
