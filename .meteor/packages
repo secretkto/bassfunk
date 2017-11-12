@@ -55,7 +55,6 @@ cfs:worker@0.1.4
 yogiben:autoform-file@=0.3.1
 aldeed:http@=0.2.3
 cfs:file@=0.1.18
-webdeb:app-loader@0.0.2
 iron:middleware-stack@1.1.0
 standard-minifier-css
 standard-minifier-js

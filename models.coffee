@@ -348,7 +348,7 @@ All.attachSchema(Schemas.All)
 Schemas.Messages = new SimpleSchema
 	author:
 		type:String
-		max: 150
+		max: 750
 
 	sort:
 		type: Number
@@ -356,7 +356,7 @@ Schemas.Messages = new SimpleSchema
 
 	text:
 		type:String
-		max: 750
+		max: 9750
 
 	createdAt: 
 		type: Date
@@ -376,7 +376,7 @@ Messages.attachSchema(Schemas.Messages)
 Schemas.Posts = new SimpleSchema
 	text:
 		type:String
-		max: 750
+		max: 9750
 
 	sort:
 		type: Number

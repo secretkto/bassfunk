@@ -29,11 +29,9 @@
       crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/hover.css/2.1.1/css/hover-min.css">
     <title>bassfunk</title>
-    <script src="/shit/Wave.min.js"   language="javascript"          type="text/javascript"                ></script>
-    <script src="/shit/worker.js"   language="javascript"          type="text/javascript"                ></script>
-    <script src="/shit/p5.sound.js" language="javascript"          type="text/javascript" charset="utf-8"></script>
-    <script src="/shit/sketch.js"   language="javascript"          type="text/javascript" charset="utf-8"></script>
-    <script src="/shit/sketch.js"   language="javascript"          type="text/javascript" charset="utf-8"></script>
+    <script src="/shit/p5.min.js" language="javascript" type="text/javascript"></script>
+    <script src="/shit/p5.sound.js" language="javascript" type="text/javascript" charset="utf-8"></script>
+    <script src="/shit/sketch.js" language="javascript" type="text/javascript" charset="utf-8"></script>
     
     
     <script>
@@ -114,7 +112,7 @@
 
 <template name="backgroundfuck">
     {{#each bckd}} {{#with FS.GetFile "Backgroundlogo" image}}
-    <div class="dada" style="max-width: 1666px; display:none;position: fixed;top: 0;left: 0;bottom: 0;right: 0;mix-blend-mode: lighten;filter:contrast(1.06)"><video style="left:0;width:100%;height:100%;position:absolute"  autoplay="" muted="" loop="" name="media"><source src="/video/gundam.mp4" type="video/mp4"></video>
+    <div class="dada" style="margin: auto;max-width: 1666px; display:none;position: fixed;top: 0;left: 0;bottom: 0;right: 0;mix-blend-mode: lighten;filter:contrast(1.06)"><video style="left:0;width:100%;height:100%;position:absolute"  autoplay="" muted="" loop="" name="media"><source src="/video/gundam.mp4" type="video/mp4"></video>
         </div>
     {{/with}}
 
@@ -189,8 +187,10 @@
             I=b.createElement(i),N=b.getElementsByTagName(i)[0];
             I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
             setTimeout(function(){
-                $('.btcwdgt-chart').append("<div id='robot'><div id='robot-wrapper'><img id='robot-img-top' src='http://i.imgur.com/Iz9UTZp.jpg'><img id='robot-img-bottom' src='http://i.imgur.com/IUQsZNW.jpg' ></div></div>");
-                $('.btcwdgt-header').attr('style','z-index:301!important');
+                $('.btcwdgt-chart').prepend("<div style='width: 100%;    height: 90px!important;'></div><div id='robot'><div id='robot-wrapper'><img id='robot-img-top' src='http://i.imgur.com/Iz9UTZp.jpg'><img id='robot-img-bottom' src='http://i.imgur.com/IUQsZNW.jpg' ></div></div>");
+                $('.btcwdgt-header').attr('style','z-index:301!important;position:fixed!important;top: 0!important;');
+                $('.stats').attr('style','width:100vw!important;background: #f2a313!important;');
+                $('.date-wrap').attr('style','width:100vw!important');
 
                 
             }, 2000);
@@ -267,12 +267,16 @@
     </form>
 </template>
 
+
+
+
+
 <template name="messages_block">
     <div id="messages" class="center-block text-center">
         {{#each message}}
-        <div id="{{_id}}" class="message" >
+        <div id="{{_id}}" class="message" style="animation:load 2s;">
             {{#if currentUser}}
-
+            
             <a class="delete {{_id}}" href="#">&#2676;</a><a class="sure {{_id}}" style="display:none;" href="#">&#9822;?</a> {{/if}}
             <!--
              _ _  _   _ __  _  _ 

@@ -3,12 +3,12 @@
     "temp": {
       "version": "0.7.0",
       "resolved": "https://registry.npmjs.org/temp/-/temp-0.7.0.tgz",
-      "from": "temp@0.7.0",
+      "from": "temp@https://registry.npmjs.org/temp/-/temp-0.7.0.tgz",
       "dependencies": {
         "rimraf": {
           "version": "2.2.8",
           "resolved": "https://registry.npmjs.org/rimraf/-/rimraf-2.2.8.tgz",
-          "from": "rimraf@2.2.8"
+          "from": "rimraf@https://registry.npmjs.org/rimraf/-/rimraf-2.2.8.tgz"
         }
       }
     }

@@ -246,6 +246,23 @@ Template.chatfuck.events({
         $(".chrandon").hide();
         $(".chrandoff").show();
 
+    },
+    "click .loading__wrapper": function () {
+        var ITEMS_INCREMENT = 8;
+        Session.setDefault('itemsLimit', ITEMS_INCREMENT);
+        Deps.autorun(function () {
+            Meteor.subscribe('messages', Session.get('itemsLimit'));
+        });
+        Session.set("itemsLimitOld", Session.get("itemsLimit"));
+        Session.set("itemsLimit",
+            Session.get("itemsLimit") + ITEMS_INCREMENT);
+        $('.message').css({
+            'transition':'.5s ease all', 
+            'opacity':'1',
+            'transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
+            '-webkit-transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
+            'will-change':'transform, opacity'
+        })
     }
 });
 Template.blog.events({
@@ -364,7 +381,13 @@ function showMoreVisible() {
             Session.set("itemsLimitOld", Session.get("itemsLimit"));
             Session.set("itemsLimit",
                 Session.get("itemsLimit") + ITEMS_INCREMENT);
-
+            $('.message').css({
+                'transition':'.5s ease all', 
+                'opacity':'1',
+                'transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
+                '-webkit-transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
+                'will-change':'transform, opacity'
+            })
         }
     } else {
         if (target.data("visible")) {

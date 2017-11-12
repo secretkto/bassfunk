@@ -4,7 +4,7 @@ module.exports = {
       // TODO: set host address, username, and authentication method
       host: '95.85.61.141',
       username: 'root',
-      /*pem: 'C:\/Users\/USER\/.ssh\/id_rsa',*/
+      // pem: 'C:\/Users\/USER\/.ssh\/id_rsa',
       password: '22914422h'
       // or neither for authenticate from ssh-agent
     }
@@ -13,7 +13,7 @@ module.exports = {
   meteor: {
     // TODO: change app name and path
     name: 'bassfunk',
-    path: 'C:\/Users\/USER\/Desktop\/bassfunk\/meteor',
+    path: 'C:\/Users\/USER\/Desktop\/meteor',
 
     servers: {
       one: {},
@@ -55,7 +55,7 @@ module.exports = {
     // for your app to start
     // Add 30 seconds if the server has 512mb of ram
     // And 30 more if you have binary npm dependencies.
-    deployCheckWaitTime: 211,
+    // deployCheckWaitTime: 22,
 
     // Show progress bar while uploading bundle to server
     // You might need to disable it on CI servers
