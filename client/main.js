@@ -261,7 +261,6 @@ Template.chatfuck.events({
             'opacity':'1',
             'transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
             '-webkit-transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
-            'will-change':'transform, opacity'
         })
     }
 });
@@ -386,7 +385,6 @@ function showMoreVisible() {
                 'opacity':'1',
                 'transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
                 '-webkit-transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
-                'will-change':'transform, opacity'
             })
         }
     } else {

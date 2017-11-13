@@ -55,6 +55,10 @@ body {
     height: 100%;
 }
 
+#defaultCanvas0{
+    width: 100%!important
+}
+
 canvas {
     width: 100%;
     height: 100%;
@@ -100,6 +104,90 @@ canvas {
     color: white;
     z-index: 9999999;
     cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), auto;
+}
+
+.links{
+    padding: 0px 16%!important;
+}
+
+.emptysocial , .issocial{
+    border:5px solid #fff;
+    display: inline-block;
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+    margin: 1px!important;
+}
+
+@media(max-width: 490px){
+    .emptysocial , .issocial{
+        width: 43px;
+        height: 43px;
+    }
+}
+
+.issocial{
+    position: relative;
+    overflow: hidden;
+}
+
+.issocial img{
+    position: absolute;
+    left: 0; right: 0; bottom: 0; top: 0;
+    margin: auto;
+    width: 95%!important;
+    height: 95%;
+    transform: rotate(-21deg) translatez(0);
+}
+
+.fbut:nth-child(1) img {
+    transform: rotate(-21deg);
+}
+
+.fbut:nth-child(2) img {
+    transform: rotate(-50deg);
+}
+
+.fbut:nth-child(3) img {
+    transform: rotate(-21deg);
+}
+
+.issocial:nth-child(1) img{
+    width: 89%!important;
+    height: 89%;
+}
+
+.issocial:nth-child(3) img{
+    width: 84%!important;
+    height: 84%;
+    left: 2px;
+}
+
+.issocial:nth-child(5) img{
+    width: 111%!important;
+    height: 118%;
+    left: -4px;
+}
+
+.issocial:nth-child(5) {
+    overflow: visible;
+}
+
+.issocial:nth-child(6) img{
+    width: 115%!important;
+    height: 115%;
+    left: -5px;
+}
+
+.issocial:nth-child(6) {
+    overflow: visible;
+}
+
+.issocial:nth-child(7) img{
+    width: 86%!important;
+    height: 86%;
+    left: -1px;
+    
 }
 
 .fa:hover {
@@ -201,7 +289,7 @@ canvas {
 }
 
 
-@media(max-width: 1600px){
+@media(max-width: 1750px){
     .btcwdgt-body{
         mix-blend-mode: lighten!important;
     }
@@ -285,8 +373,8 @@ canvas {
 @media(max-width: 290px) {
 
     .footer {
-        top: 140px!important;
-        transform: scale(0.8);
+        top: 111px!important;
+        transform: scale(0.66);
         transition: 0.3s ease all;
         position: fixed!important;
         right: -11px!important;
@@ -295,6 +383,7 @@ canvas {
         width: 102px!important;
         min-width: 115px;
         bottom: auto!important;
+        z-index: 2;
     }
     .footer img {
         margin-bottom: 19px!important;
@@ -513,17 +602,12 @@ a {
     display: inline-block;
 }
 
-.logo {
-    padding: 0 7.5%;
-}
-
 .links {
     padding: 0 27%;
 }
 
 .logo img {
     width: 100%;
-    max-width: 300px;
     display: inline;
     cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), auto;
     z-index: 999999;
@@ -1192,6 +1276,10 @@ input[type=number] {
     0% {
         opacity: 0;
         transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);-webkit-transform: matrix3d(0.5,0,0.00,0,0.00,0.5,0.00,0,0,0,1,0,0,0,0,1);
+    }
+
+    50%{
+        opacity: 0;
     }
     100% {
         opacity: 1;
