@@ -147,7 +147,7 @@
 
 <template name="backgroundfuck">
     {{#each bckd}} {{#with FS.GetFile "Backgroundlogo" image}}
-    <div class="dada" style="margin: auto;max-width: 1666px; display:none;position: fixed;top: 0;left: 0;bottom: 0;right: 0;mix-blend-mode: lighten;filter:contrast(1.06)"><video style="left:0;width:100%;height:100%;position:absolute"  autoplay="" muted="" loop="" name="media"><source src="/video/gundam.mp4" type="video/mp4"></video>
+    <div onclick="logoclick=false" class="dada" style="margin: auto;max-width: 1666px;width:80%!important;min-width: 800px; display:none;position: fixed;top: 0;left: 0;bottom: 0;right: 0;mix-blend-mode: lighten;filter:contrast(1.06)"><video style="left:0;width:100%;height:100%;position:absolute"  autoplay="" muted="" loop="" name="media"><source src="/video/gundam.mp4" type="video/mp4"></video>
         </div>
     {{/with}}
 
@@ -249,10 +249,11 @@
         // Variables for current position
         var mX, mY;
         var blogin = true;
+        var logoclick = true;
 
         function handleMouse(e) {
             
-            if (!blogin){ 
+            if (!blogin || !logoclick){ 
                 return};
             // Verify that x and y already have some value
             if (mX && mY) {

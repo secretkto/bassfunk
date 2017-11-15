@@ -121,11 +121,9 @@ Template.bassfunk.events({
         $("#wow").width(bw);
         $("canvas").height(bh);
         $("canvas").width(bw);
-        console.log(bw);
         Session.set("artist", this);
         artname = Session.get("artist").name;
         need = Session.get(this.sound);
-        console.log(artname);
         if (mySound == null) {
             mySound = loadSound(need, function () {
                 mySound.play(),
@@ -161,6 +159,7 @@ Template.bassfunk.events({
         $(".soundon").show();
         $("body").css("-webkit-filter", "invert(100%)");
         $("body").css("filter", "invert(100%)");
+        $("video").css("opacity", "0");
         $(".fbut").css("-webkit-filter", "invert(0%)");
         $(".fbut").css("filter", "invert(0%)");
     },
@@ -177,6 +176,8 @@ Template.bassfunk.events({
         $("body").css("filter", "invert(0%)");
         $(".fbut").css("-webkit-filter", "invert(0%)");
         $(".fbut").css("filter", "invert(0%)");
+        $("video").css("opacity", "1");
+        
     },
     "click .randoff": function () {
         $(".all").fadeOut(100, function () { Session.set("rando", false); });
@@ -256,12 +257,7 @@ Template.chatfuck.events({
         Session.set("itemsLimitOld", Session.get("itemsLimit"));
         Session.set("itemsLimit",
             Session.get("itemsLimit") + ITEMS_INCREMENT);
-        $('.message').css({
-            'transition':'.5s ease all', 
-            'opacity':'1',
-            'transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
-            '-webkit-transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
-        })
+        
     }
 });
 Template.blog.events({
@@ -380,12 +376,7 @@ function showMoreVisible() {
             Session.set("itemsLimitOld", Session.get("itemsLimit"));
             Session.set("itemsLimit",
                 Session.get("itemsLimit") + ITEMS_INCREMENT);
-            $('.message').css({
-                'transition':'.5s ease all', 
-                'opacity':'1',
-                'transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
-                '-webkit-transform':'matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1)',
-            })
+         
         }
     } else {
         if (target.data("visible")) {
