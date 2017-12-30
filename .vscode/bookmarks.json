@@ -6,24 +6,9 @@
 	"onDidUpdateBookmarkEmitter": {},
 	"bookmarks": [
 		{
-			"fsPath": "$ROOTPATH$\\client\\bassfunk.css",
-			"bookmarks": [
-				274,
-				312,
-				446
-			]
-		},
-		{
 			"fsPath": "$ROOTPATH$\\client\\index.html",
 			"bookmarks": [
-				215
-			]
-		},
-		{
-			"fsPath": "$ROOTPATH$\\client\\main.js",
-			"bookmarks": [
-				253,
-				390
+				5
 			]
 		}
 	]

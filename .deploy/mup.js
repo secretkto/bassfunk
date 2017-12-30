@@ -3,6 +3,7 @@ module.exports = {
     one: {
       // TODO: set host address, username, and authentication method
       host: '95.85.61.141',
+      // host: '188.166.73.11',
       username: 'root',
       // pem: 'C:\/Users\/USER\/.ssh\/id_rsa',
       password: '22914422h'
@@ -21,7 +22,7 @@ module.exports = {
 
     buildOptions: {
         // build with the debug mode on
-        debug: true,
+        // debug: true,
         // mobile setting for cordova apps
         // executable used to build the meteor project
         // you can set a local repo path if needed
@@ -32,8 +33,10 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
-      ROOT_URL: 'http://95.85.61.141',
+      ROOT_URL: 'http://bassfunk.moscow',
+      // ROOT_URL: 'http://188.166.73.11',
       MONGO_URL: 'mongodb://localhost/meteor',
+      METEOR_ENV: "production"
     },
 
     // ssl: { // (optional)
