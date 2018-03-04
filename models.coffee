@@ -55,6 +55,7 @@ Router.configure
 	nonAdminRedirectRoute: 'login',
 	adminEmails: ['lol@basuha.com']
 	name: 'Bassfunk'
+	skin: 'black',
 	collections: {
 		Our: {
 			icon: 'pencil'
@@ -375,7 +376,7 @@ Messages.attachSchema(Schemas.Messages)
 
 Schemas.Posts = new SimpleSchema
 	text:
-		type:String
+		type: String
 		max: 59750
 
 	sort:

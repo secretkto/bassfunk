@@ -222,12 +222,17 @@ body {
 }
 
 @media(max-width: 290px) {
-    .bassimg {
-        transform: scale(0.5) rotate(-45deg);
+    .bassimg-media {
+        transform:  rotate(-45deg);
         transition: 0.3s ease all;
         position: fixed!important;
         left: -50px;
-        top: -100px;
+        top: -50px;
+    }
+    
+    .bassimg-media img {
+        content: url(/img/media-small.png);
+        
     }
     .widthfix {
         position: relative;
@@ -289,7 +294,7 @@ h1 {
     font-family: 'Oswald', sans-serif;
 }
 
-.basslogo {
+/* .basslogo {
     max-height: 250px;
     margin: 0 auto;
     margin-top: 45px!important;
@@ -305,7 +310,7 @@ h1 {
     position: absolute;
     bottom: 2.35em;
     left: -1.25em;
-}
+} */
 
 a:active,
 a:focus,
@@ -447,23 +452,42 @@ canvas {
 /* BACKGROUNDANDLOGO BACKGROUNDANDLOGO BACKGROUNDANDLOGO BACKGROUNDANDLOGO  */
 
 .bassimg:hover {
-    opacity: 0.9;
+    opacity: 0.85 !important;
+}
+
+.bassimg:active {
+    opacity: 0.7 !important;
+}
+
+.bassimg img{
+    margin: 5.5% auto 4% auto;
+    display: block;
 }
 
 .bassimg {
     margin: 0 auto;
-    margin-bottom: 45px;
-    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), auto;
+    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), pointer;
     z-index: 9999999999!important;
     position: relative;
-    border: 9px solid white;
-    width: 187px;
-    height: 187px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 35px;
+    display: inline-block; 
+    mix-blend-mode: lighten;
+    transition: .5s ease opacity;
+    opacity: 0;
+}
+
+.bassimg-past img{
+    margin: 4.5% auto 8% auto;
+}
+
+.small-logo{
+    opacity: 1 !important;
+    z-index: 99999999999 !important;
+    mix-blend-mode: unset !important;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4%;
+
 }
 
 .dada {
@@ -520,18 +544,18 @@ canvas {
     width: 30px;
     color: white;
     z-index: 9999999;
-    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), auto;
+    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), pointer;
     font-size: 30px;
 }
 
 .zoom {
     position: fixed;
-    right: 37px;
-    top: 164px;
-    width: 30px;
+    right: 16px;
+    top: 161px;
+    width: 51px;
     color: white;
     z-index: 9999999;
-    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), auto;
+    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), pointer;
 }
 
 .soundon {
@@ -545,7 +569,7 @@ canvas {
     width: 30px;
     color: white;
     z-index: 9999999;
-    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), auto;
+    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), pointer;
 }
 
 .fa:hover {
@@ -604,7 +628,7 @@ canvas {
     color: white;
     z-index: 9999999;
     font-size: 30px;
-    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), auto;
+    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), pointer;
 }
 
 .blogin {
@@ -615,7 +639,7 @@ canvas {
     color: white;
     z-index: 9999999;
     font-size: 30px;
-    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), auto;
+    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), pointer;
 }
 
 .blogin a {
@@ -736,12 +760,13 @@ canvas {
 
 /* LOADER LOADER LOADER LOADER LOADER LOADER LOADER  */
 
+
 .loading__wrapper {
     height: 50px;
     position: relative;
     width: 183px;
     bottom: 35px;
-    left: -10px;
+    left: 0;
     right: 0;
     margin: auto;
     z-index: 999999;
@@ -1608,31 +1633,31 @@ input[type=number] {
 @keyframes load {
     0% {
         opacity: 0;
-        transform: matrix3d(0.5, 0, 0.00, 0, 0.00, 0.5, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-        -webkit-transform: matrix3d(0.5, 0, 0.00, 0, 0.00, 0.5, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        /* transform: matrix3d(0.5, 0, 0.00, 0, 0.00, 0.5, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1); */
+        /* -webkit-transform: matrix3d(0.5, 0, 0.00, 0, 0.00, 0.5, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1); */
     }
     50% {
         opacity: 0;
     }
     100% {
         opacity: 1;
-        transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-        -webkit-transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        /* transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1); */
+        /* -webkit-transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1); */
     }
 }
 
 @-webkit-keyframes load {
     0% {
         opacity: 0;
-        transform: matrix3d(0.5, 0, 0.00, 0, 0.00, 0.5, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-        -webkit-transform: matrix3d(0.5, 0, 0.00, 0, 0.00, 0.5, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        /* transform: matrix3d(0.5, 0, 0.00, 0, 0.00, 0.5, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1); */
+        /* -webkit-transform: matrix3d(0.5, 0, 0.00, 0, 0.00, 0.5, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1); */
     }
     50% {
         opacity: 0;
     }
     100% {
         opacity: 1;
-        transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-        -webkit-transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        /* transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1); */
+        /* -webkit-transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, 0, 0, 0, 1, 0, 0, 0, 0, 1); */
     }
 }
