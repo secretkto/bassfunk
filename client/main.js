@@ -151,7 +151,6 @@ Template.bassfunk.events({
         if (mySound != null) {
             mySound.stop();
         }
-        // $("#wow").hide();
         $(".soundoff").hide();
         $(".soundon").show();
         $("body").css("-webkit-filter", "invert(100%)");
@@ -167,7 +166,6 @@ Template.bassfunk.events({
         }
         masterVolume(1);
         sound = 1;
-        // $("#wow").show();
         $(".soundon").hide();
         $(".soundoff").show();
         $("body").css("-webkit-filter", "none");
@@ -205,7 +203,6 @@ Template.bassfunk.events({
             'border': '5px solid white',
             'height': '73px'
         });
-        // $(".all").fadeIn();
     },
     "click .zoomon": function () {
         // $(".all").fadeOut(100, function () { Session.set("rando", true); });
@@ -223,19 +220,11 @@ Template.bassfunk.events({
             'border': '3px solid white',
             'height': '33px'
         });
-        // $(".all").fadeIn();
     },
     "mouseenter .bassimg": function () {
-        // $(".dada").css("display", "block");
-        // $(".dada").removeClass("dadaBack");
-        // $(".dada").addClass("dadaFront");
     },
     "mouseleave .bassimg": function () {
-        // $(".dada").css("display", "none");
         $('.wrapper').css('background', '#000');
-        // $(".dada").removeClass("dadaFront");
-        // $(".dada").addClass("dadaBack");
-
     },
     "click .delete": function () {
         $(".delete" + "." + this._id).hide();
@@ -246,18 +235,6 @@ Template.bassfunk.events({
     }
 });
 Template.chatfuck.events({
-    "mouseenter .bassimg": function () {
-        // $(".dada").css("display", "block");
-        $('.container-fluid').css('background-size', '4px 4px');
-        // $(".dada").removeClass("dadaBack");
-        // $(".dada").addClass("dadaFront");
-    },
-    "mouseleave .bassimg": function () {
-        // $(".dada").css("display", "none");
-        $('.container-fluid').css('background', '#000');
-        // $(".dada").removeClass("dadaFront");
-        // $(".dada").addClass("dadaBack");
-    },
     "click .delete": function () {
         $(".delete" + "." + this._id).hide();
         $(".sure" + "." + this._id).show();
@@ -291,16 +268,10 @@ Template.chatfuck.events({
 });
 Template.blog.events({
     "mouseenter .bassimg": function () {
-        // $(".dada").css("display", "block");
         $('.container-fluid').css('background-size', '4px 4px');
-        // $(".dada").removeClass("dadaBack");
-        // $(".dada").addClass("dadaFront");
     },
     "mouseleave .bassimg": function () {
-        // $(".dada").css("display", "none");
         $('.container-fluid').css('background', '#000');
-        // $(".dada").removeClass("dadaFront");
-        // $(".dada").addClass("dadaBack");
     },
     "click .delete": function () {
         $(".delete" + "." + this._id).hide();
@@ -325,16 +296,10 @@ Template.blog.events({
 
 Template.plums.events({
     "mouseenter .bassimg": function () {
-        // $(".dada").css("display", "block");
         $('.wrapper').css('background-size', '4px 4px');
-        // $(".dada").removeClass("dadaBack");
-        // $(".dada").addClass("dadaFront");
     },
     "mouseleave .bassimg": function () {
-        // $(".dada").css("display", "none");
         $('.wrapper').css('background', '#000');
-        // $(".dada").removeClass("dadaFront");
-        // $(".dada").addClass("dadaBack");
     }
 })
 
@@ -366,7 +331,8 @@ Router.route('/stream', function () {
 Template.messages_block.helpers({
     message: function () {
         if (Session.get("chrando") == false) {
-            return Messages.find({}, { sort: { sort: -1 } });
+            return Messages.find({}, { sort: { createdAt:-1,sort:1} }); 
+            // return Messages.find({}).sort({createdAt:-1,sort:-1});
         } else if (Session.get("chrando") == true) {
             Meteor.subscribe('rand');
             return _.first(_.shuffle(Rand.find().fetch()), Session.get('itemsLimit'));
@@ -425,7 +391,7 @@ Router.route('/all', function () {
 Template.blog_messages_block.helpers({
     blog_message: function () {
         if (Session.get("prando") == false) {
-            return Posts.find({}, { sort: { sort: -1 } }).fetch();
+            return Posts.find({}, { sort: { createdAt:-1, sort:1} }).fetch();
             console.log("NOW WE NEED POSTS")
         } else if (Session.get("prando") == true) {
             Meteor.subscribe('randpo');
